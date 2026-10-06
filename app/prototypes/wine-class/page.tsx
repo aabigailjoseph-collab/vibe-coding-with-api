@@ -254,7 +254,7 @@ function Home({ now, nextClass, onOpen, onGo, notes, tastings }: {
           <p className={styles.muted}>Hover a dot to see the class, click to open it.</p>
         </div>
         <div className={styles.mapFrame}>
-          <RegionMap center={[43, -30]} zoom={3} pins={overviewPins} onSelect={onOpen} height={460} />
+          <RegionMap center={[42, -55]} zoom={3} pins={overviewPins} onSelect={onOpen} height={460} />
         </div>
       </section>
 
