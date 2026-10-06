@@ -1,0 +1,1755 @@
+/* Wine Class: clean, minimal, editorial.
+   Palette lives on .page (CSS modules rule: no :root here).
+   Each region sets --accent inline so the whole page tints to its wine color. */
+
+.page {
+  --paper: #faf7f2;
+  --card: #ffffff;
+  --ink: #1f1a1a;
+  --muted: #776e68;
+  --line: #e8e1d7;
+  --wine: #6b1e2e;
+  --accent: var(--wine);
+  --radius: 14px;
+  --serif-stack: var(--serif), 'Cormorant Garamond', Georgia, serif;
+
+  min-height: 100vh;
+  overflow-x: clip;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ───────── nav ───────── */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem clamp(1rem, 4vw, 3rem);
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--serif-stack);
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--ink);
+  padding: 0;
+}
+
+.brandMark {
+  color: var(--wine);
+  font-size: 1.2rem;
+}
+
+.brandDot {
+  color: var(--wine);
+}
+
+.navLinks {
+  display: flex;
+  gap: 0.25rem;
+  overflow-x: auto;
+}
+
+.navLink {
+  background: none;
+  border: 0;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+}
+
+.navLink:hover {
+  color: var(--ink);
+}
+
+.navActive {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.navActive:hover {
+  color: var(--paper);
+}
+
+/* ───────── type ───────── */
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.h2 {
+  font-family: var(--serif-stack);
+  font-weight: 500;
+  font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+  line-height: 1.1;
+}
+
+.h3 {
+  font-family: var(--serif-stack);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.h3Section {
+  font-family: var(--serif-stack);
+  font-size: 1.7rem;
+  font-weight: 500;
+  margin: 2.6rem 0 1rem;
+}
+
+.lede {
+  font-family: var(--serif-stack);
+  font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+  line-height: 1.45;
+  max-width: 52rem;
+  margin-bottom: 2rem;
+}
+
+.footnote {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.footer {
+  padding: 3rem 1rem 6rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ───────── layout ───────── */
+
+.section {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 3rem clamp(1rem, 4vw, 3rem);
+}
+
+.sectionHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.twoUp {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.cardIcon {
+  display: inline-block;
+  color: var(--accent);
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+}
+
+/* ───────── hero ───────── */
+
+.hero {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 4vw, 3rem) 2rem;
+}
+
+.heroTitle {
+  font-family: var(--serif-stack);
+  font-weight: 400;
+  font-size: clamp(3.2rem, 9vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin: 0.6rem 0 1.2rem;
+}
+
+.heroTitle em {
+  color: var(--wine);
+}
+
+.heroSub {
+  max-width: 38rem;
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+.nextCard {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 720px;
+  text-align: left;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--card);
+  cursor: pointer;
+  color: inherit;
+  box-shadow: 0 1px 0 var(--line), 0 20px 40px -24px color-mix(in srgb, var(--accent) 50%, transparent);
+  transition: transform 0.2s;
+}
+
+.nextCard:hover {
+  transform: translateY(-2px);
+}
+
+.nextBadge {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--serif-stack);
+  font-size: 1.15rem;
+  text-align: center;
+  line-height: 1.1;
+  padding: 0.5rem;
+}
+
+.nextBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.nextTitle {
+  font-family: var(--serif-stack);
+  font-size: 2.2rem;
+  line-height: 1.1;
+}
+
+.nextTag {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.nextArrow {
+  color: var(--accent);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ───────── syllabus ───────── */
+
+.syllabus {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.classCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 0.3rem;
+  padding: 1.25rem 1.25rem 1.4rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--card);
+  cursor: pointer;
+  color: inherit;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+
+.classCard::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: var(--accent);
+}
+
+.classCard:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
+  box-shadow: 0 24px 40px -28px color-mix(in srgb, var(--accent) 70%, transparent);
+}
+
+.classDone {
+  opacity: 0.72;
+}
+
+.classTop {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.classNum {
+  font-family: var(--serif-stack);
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.status {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.statusNext {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.classGlasses {
+  display: flex;
+  gap: 0.35rem;
+  color: #c9bfb4;
+  margin: 0.8rem 0 0.6rem;
+}
+
+.classDate {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.classTitle {
+  font-family: var(--serif-stack);
+  font-size: 1.9rem;
+  line-height: 1.05;
+}
+
+.classTag {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.classMeta {
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--accent);
+}
+
+.glass {
+  flex-shrink: 0;
+}
+
+.bigLink {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: left;
+  padding: 2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--card);
+  cursor: pointer;
+  color: inherit;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.bigLink:hover {
+  border-color: var(--wine);
+  transform: translateY(-2px);
+}
+
+.bigLinkTitle {
+  font-family: var(--serif-stack);
+  font-size: 2.2rem;
+  line-height: 1.1;
+}
+
+.arrow {
+  position: absolute;
+  right: 1.75rem;
+  top: 1.75rem;
+  font-size: 1.4rem;
+  color: var(--wine);
+}
+
+/* ───────── region ───────── */
+
+.regionHero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: end;
+  gap: 2rem;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 7vw, 5rem) clamp(1rem, 4vw, 3rem) 2rem;
+  position: relative;
+}
+
+.regionHero::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  right: -10%;
+  top: -40%;
+  width: 60%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 22%, transparent), transparent 65%);
+  pointer-events: none;
+}
+
+.regionHeroText {
+  position: relative;
+  z-index: 1;
+}
+
+.heroPill {
+  margin-left: 0.4rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  letter-spacing: 0.08em;
+}
+
+.regionTitle {
+  font-family: var(--serif-stack);
+  font-weight: 400;
+  font-size: clamp(3.4rem, 10vw, 7.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+  margin-top: 0.6rem;
+}
+
+.regionCountry {
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.regionTagline {
+  font-family: var(--serif-stack);
+  font-style: italic;
+  font-size: 1.5rem;
+  margin-top: 0.4rem;
+}
+
+.regionGlasses {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 0.75rem;
+  justify-content: flex-end;
+  color: #bdb2a6;
+}
+
+.heroGlass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  width: 64px;
+  text-align: center;
+  font-size: 0.7rem;
+  line-height: 1.2;
+  color: var(--muted);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 3rem);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 1.1rem 1rem 1.1rem 0;
+  border-top: 1px solid var(--ink);
+}
+
+.statValue {
+  font-family: var(--serif-stack);
+  font-size: 1.55rem;
+  line-height: 1.15;
+}
+
+.statLabel {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.tabs {
+  position: sticky;
+  top: 62px;
+  z-index: 900;
+  display: flex;
+  gap: 0.25rem;
+  max-width: 1180px;
+  margin: 2rem auto 0;
+  padding: 0.6rem clamp(1rem, 4vw, 3rem);
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(8px);
+  overflow-x: auto;
+}
+
+.tab {
+  padding: 0.55rem 1.05rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--muted);
+  font-size: 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.tab:hover {
+  color: var(--ink);
+}
+
+.tabOn {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.tabOn:hover {
+  color: #fff;
+}
+
+.tabBody {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 2rem clamp(1rem, 4vw, 3rem) 1rem;
+  animation: fadeUp 0.35s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.zones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.zone {
+  display: flex;
+  gap: 0.9rem;
+  padding: 1rem;
+  border-left: 2px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 5%, var(--card));
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.zoneNum {
+  font-family: var(--serif-stack);
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.facts {
+  list-style: none;
+  padding: 0;
+  counter-reset: fact;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 0.25rem 2.5rem;
+}
+
+.fact {
+  counter-increment: fact;
+  position: relative;
+  padding: 1rem 0 1rem 3rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.fact::before {
+  content: counter(fact, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0.9rem;
+  font-family: var(--serif-stack);
+  font-size: 1.4rem;
+  color: var(--accent);
+}
+
+.timeline {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(170px, 1fr);
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.timeItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-right: 1.25rem;
+  position: relative;
+}
+
+.timeYear {
+  font-family: var(--serif-stack);
+  font-size: 1.6rem;
+  color: var(--accent);
+}
+
+.timeDot {
+  position: relative;
+  height: 12px;
+}
+
+.timeDot::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 5px;
+  height: 1px;
+  background: var(--line);
+}
+
+.timeDot::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.timeEvent {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.chip,
+.chipStatic {
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  font-size: 0.82rem;
+  color: var(--ink);
+}
+
+.chip {
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.chip:hover {
+  border-color: var(--ink);
+}
+
+.chipOn {
+  color: #fff;
+}
+
+.pairings {
+  list-style: none;
+  padding: 0;
+}
+
+.pairing {
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+/* ───────── map ───────── */
+
+.mapLayout {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.mapFrame {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #eef0f0;
+}
+
+.mapCanvas {
+  width: 100%;
+  background: #eef0f0;
+  z-index: 0;
+}
+
+.mapCanvas .mapTooltip {
+  background: var(--ink);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  box-shadow: none;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+}
+
+.mapCanvas .mapTooltip::before {
+  display: none;
+}
+
+.mapPopup :global(.leaflet-popup-content-wrapper) {
+  border-radius: 10px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+}
+
+.mapPopup :global(.leaflet-popup-content) {
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.legend {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.75rem;
+  z-index: 500;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--card) 92%, transparent);
+  font-size: 0.75rem;
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.legendDot {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-top: 0.15rem;
+}
+
+.pinList {
+  display: flex;
+  flex-direction: column;
+  max-height: 560px;
+  overflow-y: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+
+.pinItem {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  text-align: left;
+  padding: 0.8rem 1rem;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: none;
+  cursor: pointer;
+  color: inherit;
+  font-size: 0.9rem;
+  transition: background 0.15s;
+}
+
+.pinItem:hover {
+  background: color-mix(in srgb, var(--accent) 5%, var(--card));
+}
+
+.pinItemOn {
+  background: color-mix(in srgb, var(--accent) 10%, var(--card));
+}
+
+.pinNote {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 0.15rem;
+}
+
+/* ───────── grapes ───────── */
+
+.grapeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.grapeCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding: 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.grapeTop {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  color: #bdb2a6;
+}
+
+.grapeType {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.grapeName {
+  font-family: var(--serif-stack);
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.05;
+  color: var(--ink);
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.profileRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profileLabel {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.profileDots {
+  display: flex;
+  gap: 5px;
+}
+
+.profileDot {
+  width: 22px;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--line);
+}
+
+/* ───────── study ───────── */
+
+.ladder {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.rung {
+  width: var(--w);
+  min-width: min(100%, 300px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.9rem 1.2rem;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accent) 7%, var(--card));
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, var(--line));
+}
+
+.vocab,
+.glossary {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0 2rem;
+}
+
+.vocabItem {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.vocabTerm {
+  font-family: var(--serif-stack);
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.vocabDef {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.catTag {
+  font-family: system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.1rem 0.45rem;
+  vertical-align: middle;
+}
+
+.flashWrap {
+  max-width: 640px;
+}
+
+.flashCard {
+  width: 100%;
+  height: 240px;
+  perspective: 1200px;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+}
+
+.flashInner {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flashFlipped .flashInner {
+  transform: rotateY(180deg);
+}
+
+.flashFront,
+.flashBack {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 2rem;
+  border-radius: var(--radius);
+  backface-visibility: hidden;
+  text-align: left;
+}
+
+.flashFront {
+  background: var(--card);
+  border: 1px solid var(--line);
+}
+
+.flashBack {
+  background: var(--accent);
+  color: #fff;
+  transform: rotateY(180deg);
+}
+
+.flashBack .flashKicker {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.flashKicker {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.flashText {
+  font-family: var(--serif-stack);
+  font-size: 1.6rem;
+  line-height: 1.25;
+}
+
+.flashHint {
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+
+.flashControls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.flashProgress {
+  flex: 1;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ───────── buttons & inputs ───────── */
+
+.ghostButton,
+.primaryButton {
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.ghostButton {
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+}
+
+.ghostButton:hover {
+  border-color: var(--ink);
+}
+
+.primaryButton {
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+.primaryButton:hover {
+  filter: brightness(1.1);
+}
+
+.linkButton {
+  align-self: flex-start;
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.input {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  font-size: 0.92rem;
+}
+
+.input:focus,
+.textarea:focus,
+.textareaSmall:focus,
+.drawerText:focus {
+  outline: 2px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  outline-offset: 1px;
+}
+
+.search {
+  max-width: 260px;
+}
+
+.textarea,
+.textareaSmall {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  padding: 1.1rem 1.25rem;
+  line-height: 1.7;
+  resize: vertical;
+}
+
+.textarea {
+  min-height: 520px;
+  font-size: 1rem;
+  background-image: repeating-linear-gradient(transparent, transparent 1.68rem, var(--line) 1.68rem, var(--line) calc(1.68rem + 1px));
+  background-position: 0 1.05rem;
+}
+
+.textareaSmall {
+  min-height: 100px;
+  font-size: 0.92rem;
+}
+
+.segmented {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 1.25rem;
+}
+
+.segment {
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.segment:hover {
+  color: var(--ink);
+}
+
+.segmentOn {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.segmentOn:hover {
+  color: var(--paper);
+}
+
+/* ───────── tasting form ───────── */
+
+.tasting {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--card);
+}
+
+.tasting .segmented {
+  margin-bottom: 0;
+}
+
+.tastingFields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.scaleGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem 1.5rem;
+}
+
+.scaleRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.scaleHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.scaleName {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.scaleValue {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.scaleSteps {
+  display: flex;
+  gap: 4px;
+}
+
+.scaleStep {
+  flex: 1;
+  height: 14px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--line);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.scaleStep:hover {
+  background: color-mix(in srgb, var(--accent) 35%, var(--line));
+}
+
+.scaleStepOn {
+  background: var(--accent);
+}
+
+.scaleStepOn:hover {
+  background: var(--accent);
+}
+
+.aromaPicker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.aromaGroup {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 0.6rem;
+  align-items: baseline;
+}
+
+.aromaGroupName {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.descBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 1.25rem 1.4rem;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--accent) 6%, var(--paper));
+  border-left: 3px solid var(--accent);
+}
+
+.descText {
+  font-family: var(--serif-stack);
+  font-size: 1.45rem;
+  line-height: 1.35;
+}
+
+.ratingRow {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.ratingRow .scaleName {
+  margin-right: 0.5rem;
+}
+
+.star {
+  background: none;
+  border: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--line);
+  cursor: pointer;
+  padding: 0 0.1rem;
+}
+
+.starOn {
+  color: var(--accent);
+}
+
+.saveRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.savedNote {
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+.notesLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.notesLayout .h3Section {
+  margin-top: 0;
+}
+
+.tastingList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.tastingCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--accent);
+  background: var(--card);
+}
+
+.tastingCardHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.tastingDesc {
+  font-family: var(--serif-stack);
+  font-size: 1.15rem;
+  line-height: 1.35;
+}
+
+.stars {
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.starsOff {
+  color: var(--line);
+}
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1180px;
+  margin: 3rem auto 0;
+  padding: 0 clamp(1rem, 4vw, 3rem);
+}
+
+/* ───────── language page ───────── */
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.stepCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.4rem;
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px solid var(--line);
+}
+
+.stepIcon {
+  font-size: 1.6rem;
+  color: var(--wine);
+}
+
+.stepNum {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+
+.stepName {
+  font-family: var(--serif-stack);
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.spectrum {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: 1.5rem 0 1rem;
+  border: 1px solid var(--line);
+}
+
+.spectrumCell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.25rem 1rem 1.5rem;
+  min-height: 140px;
+}
+
+.spectrumLabel {
+  font-family: var(--serif-stack);
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.spectrumWine {
+  font-size: 0.78rem;
+  color: var(--ink);
+  opacity: 0.75;
+}
+
+.callout {
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--wine) 6%, var(--card));
+  border-left: 3px solid var(--wine);
+  font-size: 0.95rem;
+}
+
+.scalePanel {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2.5rem;
+  padding: 2rem;
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px solid var(--line);
+  animation: fadeUp 0.35s ease;
+}
+
+.scaleBig {
+  font-family: var(--serif-stack);
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+.scaleTip {
+  margin-top: 1rem;
+}
+
+.scaleMeter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.meterRow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 44px;
+  padding: 0 0.9rem;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.meterBar {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: color-mix(in srgb, var(--wine) 16%, transparent);
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+.meterLabel {
+  position: relative;
+  font-weight: 500;
+  font-size: 0.92rem;
+  white-space: nowrap;
+}
+
+.meterEx {
+  position: relative;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.wheelLayout {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.wheel {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.wheelNote {
+  cursor: pointer;
+}
+
+.wheelNote:hover path {
+  fill-opacity: 0.75;
+}
+
+.aromaInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.aromaTier {
+  padding-left: 1rem;
+  border-left: 2px solid var(--wine);
+}
+
+/* ───────── notebook ───────── */
+
+.notebookSection {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 2rem clamp(1rem, 4vw, 3rem);
+  border-top: 1px solid var(--line);
+}
+
+.notebookHead {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.notebookHead .ghostButton {
+  margin-left: auto;
+}
+
+.notebookSwatch {
+  width: 14px;
+  height: 46px;
+  border-radius: 7px;
+  background: var(--accent);
+}
+
+/* ───────── floating notes ───────── */
+
+.fab {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.85rem 1.3rem;
+  border-radius: 999px;
+  border: 0;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 14px 30px -10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s;
+}
+
+.fab:hover {
+  transform: translateY(-2px);
+}
+
+.fabLabel {
+  font-size: 0.9rem;
+}
+
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 1150;
+  background: rgba(20, 10, 10, 0.25);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
+
+.scrimOn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1200;
+  width: min(440px, 100vw);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  background: var(--paper);
+  border-left: 1px solid var(--line);
+  box-shadow: -20px 0 50px -20px rgba(0, 0, 0, 0.3);
+  transform: translateX(105%);
+  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.drawerOn {
+  transform: none;
+}
+
+.drawerHead {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.drawerSelect {
+  flex: 1;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  font-family: var(--serif-stack);
+  font-size: 1.25rem;
+  color: var(--accent);
+}
+
+.closeButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--card);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+.drawerText {
+  flex: 1;
+  width: 100%;
+  padding: 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  line-height: 1.7;
+  resize: none;
+}
+
+/* ───────── responsive ───────── */
+
+@media (max-width: 960px) {
+  .regionHero,
+  .mapLayout,
+  .notesLayout,
+  .scalePanel,
+  .wheelLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .regionGlasses {
+    justify-content: flex-start;
+  }
+
+  .steps {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .pinList {
+    max-height: 360px;
+  }
+}
+
+@media (max-width: 640px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .spectrum {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tastingFields {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .nextCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .fabLabel {
+    display: none;
+  }
+
+  .brand {
+    font-size: 1.4rem;
+  }
+
+  .navLink {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.82rem;
+  }
+
+  .tabs {
+    top: 56px;
+  }
+}

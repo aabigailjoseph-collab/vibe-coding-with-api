@@ -14,6 +14,11 @@ export default function Home() {
       title: 'Skye',
       description: 'Weather app with ethereal design',
       path: '/prototypes/skye'
+    },
+    {
+      title: 'Wine class',
+      description: 'Study companion for my CBS wine course: regions, maps, tasting language & notes',
+      path: '/prototypes/wine-class'
     }
     // Add your new prototypes here like this:
     // {
